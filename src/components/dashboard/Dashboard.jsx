@@ -4,6 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Container, Loader, Dimmer } from 'semantic-ui-react';
 import PropTypes from 'prop-types'
+import './Dashboard.css'
 
 import TicketList from '../tickets/TicketList';
 

@@ -13,6 +13,7 @@ import createReduxStore from './store/index'
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth'
+import 'moment/locale/is'
 
 
 const rrfConfig = { userProfile: 'users' } // react-redux-firebase config

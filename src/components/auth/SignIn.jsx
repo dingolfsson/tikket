@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { Form, Input, Checkbox, Grid, Header, Segment, Button, Message, Divider } from 'semantic-ui-react';
+import { Form, Input, Checkbox, Grid, Header, Segment, Button, Message, Divider, GridColumn } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import './Auth.css'
+
+// TODO: Forgot password
+// TODO: Remember me
 
 class SignIn extends Component {
   state = {
@@ -24,34 +27,38 @@ class SignIn extends Component {
   }
 
   render() {
+    const { authError } = this.props;
 
     return (
       <div className="login-form">
         <Grid textAlign='center' className='grid-style' verticalAlign='middle'>
           <Grid.Column className='grid-column'>
             <Form size='large' onSubmit={this.handleSubmit}>
-              <Segment stacked>
+              <Segment>
                 <Header as='h1' textAlign='center'>
                   Innskráning
             </Header>
-                <Divider />
                 <Form.Input fluid icon='mail' iconPosition='left' placeholder='Póstfang' id='email' onChange={this.handleChange} required />
                 <Form.Input fluid icon='lock'
                   iconPosition='left' type='password' placeholder='Lykilorð' id='password' onChange={this.handleChange} required />
+                <Grid>
 
-                <Grid.Column floated='left'>
-                  <Form.Field control={Checkbox} label='Muna eftir mér' />
-                </Grid.Column>
-                <Grid.Column floated='right'>
-                  <a href='#'>Gleymt lykilord?</a>
-                </Grid.Column>
 
-                <Divider />
-                <Button color='green' fluid size='large'>
+                  <Grid.Column floated='left' width={6}>
+                    <Form.Field className='remember' control={Checkbox} label={{ children: 'Muna eftir mér' }} />
+
+                  </Grid.Column>
+                  <Grid.Column floated='right' width={6}>
+                    <Link className='forgot-password' to='#'>Gleymt lykilord?</Link>
+                  </Grid.Column>
+                </Grid>
+                {authError ? <div className="invalid-feedback">Rangt netfang eða lykilorð</div> : null}
+
+                <Button color='twitter' fluid size='large'>
                   Innskrá
                 </Button>
                 <Message>
-                  Ekki með aðgang? <Link to='/new'>Nýskráning</Link>
+                  Ekki með aðgang? <Link to='/new'><span className='second-info'>Nýskráning</span></Link>
                 </Message>
               </Segment>
             </Form>

@@ -12,14 +12,14 @@ const AdminCards = (props) => {
   // console.log(info)
 
   return (
-    <Card>
+    <Card className='admin-cards'>
       <Card.Content>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={8}>
+            <Grid.Column width={4}>
               <Icon corner size='big' name={icon} color={color} />
             </Grid.Column>
-            <Grid.Column width={8}>
+            <Grid.Column width={12}>
               <Card.Header textAlign='right'>{title}</Card.Header>
               <Card.Description textAlign='right'>
                 {info && info.length}

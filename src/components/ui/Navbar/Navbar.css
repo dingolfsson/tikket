@@ -1,4 +1,20 @@
-.ui.item {
-  background-color: white !important;
-  color: green !important;
+.ui.large.menu {
+  background-color: white;
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, .1);
+}
+
+.ui.menu .item {
+  color: hsl(201, 15%, 47%);
+  font-weight: 700;
+  border: 0px;
+}
+
+.ui.menu .active.item {
+  background-color: white;
+  font-weight: 700;
+  background: white;
+}
+
+.ui.secondary.menu .active.item {
+  background: white;
 }

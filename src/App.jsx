@@ -11,6 +11,7 @@ import SignUp from './components/auth/SignUp'
 import TicketDetails from './components/tickets/TicketDetails'
 import Admin from './components/admin/Admin';
 import CreateTicket from './components/tickets/CreateTicket';
+import User from './components/user/User';
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/ticket/new' component={CreateTicket} />
           <Route exact path='/ticket/:id' component={TicketDetails} />
+          <Route exact path='/profile' component={User} />
           <Route path='/admin' component={Admin} />
           <Redirect to='/' />
         </Switch>

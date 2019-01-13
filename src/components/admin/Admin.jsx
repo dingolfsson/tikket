@@ -33,18 +33,18 @@ class Admin extends Component {
 
     return (
       <Container style={{ marginTop: '8em' }}>
-        <Grid columns={4}>
+        <Grid>
           <Grid.Row>
-            <Grid.Column>
+            <Grid.Column computer={4} mobile={8}>
               <AdminCards title={'Beiðnir'} info={tickets} icon={'check circle'} iconText={'Síðustu 7 daga'} color={'green'} secondaryIcon={'clock'} />
-            </Grid.Column>
-            <Grid.Column>
+            </Grid.Column >
+            <Grid.Column computer={4} mobile={8}>
               <AdminCards title={'Óleystar'} info={solved} icon={'question circle'} iconText={priority.length + ' áríðandi'} color={'teal'} secondaryIcon={'exclamation circle'} />
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column computer={4} mobile={8}>
               <AdminCards title={'Notendur'} info={users} icon={'user'} iconText={'Síðustu 30 daga'} color={'orange'} secondaryIcon={'clock'} />
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column computer={4} mobile={8}>
               <AdminCards title={'Stjórnendur'} info={admins} icon={'key'} iconText={'X ofur'} color={'yellow'} secondaryIcon={'chess queen'} />
             </Grid.Column>
           </Grid.Row>

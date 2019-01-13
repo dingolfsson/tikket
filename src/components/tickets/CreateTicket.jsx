@@ -73,20 +73,13 @@ class CreateTicket extends Component {
           <Grid.Column textAlign='left' className='grid-column'>
             {!success ? (
               <React.Fragment>
-
-                <Breadcrumb>
-                  <Breadcrumb.Section link>Beiðnir</Breadcrumb.Section>
-                  <Breadcrumb.Divider icon='right angle' />
-                  <Breadcrumb.Section active>Ný beiðni</Breadcrumb.Section>
-                </Breadcrumb>
-
-                <Header as='h1' textAlign='center'>
-                  <Header.Content>
-                    Ný beiðni
-              </Header.Content>
-                </Header>
                 <Form size='massive' onSubmit={this.handleSubmit}>
                   <Segment>
+                    <Header as='h1' textAlign='center'>
+                      <Header.Content>
+                        Ný beiðni
+              </Header.Content>
+                    </Header>
                     {/* <Header as='h1' textAlign='center'>Nýskráning</Header> */}
                     <Form.Group widths='equal'>
                       <Form.Input id='title' icon='user' iconPosition='left' label='Titill' placeholder='Kemst ekki á netið / Bilaður prentari...' onChange={this.handleChange} required />
