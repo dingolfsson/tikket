@@ -71,7 +71,7 @@ class TicketDetails extends Component {
                     {/* <Card.Description content={ticket.description} /> */}
                   </Card.Content>
                   <Card.Content extra>
-                    <Button basic color='green'>
+                    <Button basic color='green' onClick={}>
                       Leysa
           </Button>
                   </Card.Content>
