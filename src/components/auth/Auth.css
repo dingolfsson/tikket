@@ -1,5 +1,5 @@
 body {
-  background-color: #388a9b;
+  background-color: #edf0f4;
 }
 
 body>div,
@@ -25,4 +25,21 @@ body>div>div>div.login-form {
   -moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   padding: 40px;
+}
+
+.ui.grid [class*="left floated"].column {
+  padding-left: 0em;
+  padding-bottom: 3em;
+}
+
+.ui.grid [class*="right floated"].column {
+  padding-right: 0em;
+}
+
+.ui.checkbox label {
+  font-weight: 400 !important;
+}
+
+.forgot-password {
+  font-weight: 600;
 }

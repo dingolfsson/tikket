@@ -21,3 +21,17 @@ export const createTicket = (ticket) => {
     })
   }
 }
+
+export const solveTicket = (ticket, id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const database = db;
+    database.collection('tickets').doc(id).update({
+      solved: !ticket.solved,
+      solvedAt: new Date()
+    }).then(() => {
+      dispatch({ type: actionTypes.SOLVE_TICKET, ticket });
+    }).catch((err) => {
+      dispatch({ type: actionTypes.SOLVE_TICKET_ERROR, err });
+    })
+  }
+}
