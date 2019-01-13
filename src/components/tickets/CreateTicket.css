@@ -1,0 +1,10 @@
+.invalid-feedback {
+  color: red;
+  font-weight: 600;
+  font-size: 0.8em;
+  background-color: red;
+}
+
+.div.header {
+  font-weight: 100;
+}

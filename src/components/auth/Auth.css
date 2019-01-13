@@ -1,0 +1,28 @@
+body {
+  background-color: #388a9b;
+}
+
+body>div,
+body>div>div,
+body>div>div>div.login-form {
+  height: 100%;
+}
+
+.grid-style {
+  height: 100%;
+}
+
+.grid-column {
+  max-width: 450px;
+}
+
+.message-box {
+  text-align: center;
+}
+
+.ui.segment {
+  -webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  -moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  padding: 40px;
+}
