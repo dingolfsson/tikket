@@ -1,25 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Statistic, Image, Icon, Grid, Loader, Dimmer } from 'semantic-ui-react'
-import faker from 'faker'
+import { Card, Icon, Grid } from 'semantic-ui-react'
 import './AdminCards.css'
 
 // TODO: Undir 1200 px X = Rusl. Laga
 
 const AdminCards = (props) => {
-  const { classes, title, info, icon, iconText, color, secondaryIcon } = props
-  // console.log(title)
-  // console.log(info)
+  const { title, info, icon, iconText, color, secondaryIcon } = props
 
   return (
-    <Card>
+    <Card className='admin-cards'>
       <Card.Content>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={8}>
+            <Grid.Column width={4}>
               <Icon corner size='big' name={icon} color={color} />
             </Grid.Column>
-            <Grid.Column width={8}>
+            <Grid.Column width={12}>
               <Card.Header textAlign='right'>{title}</Card.Header>
               <Card.Description textAlign='right'>
                 {info && info.length}

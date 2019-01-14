@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import { Form, Checkbox, FormCheckbox, Icon, Input, Grid, Header, Segment, Button, Message, Label, Divider } from 'semantic-ui-react';
+import { Form, FormCheckbox, Grid, Header, Segment, Button, Message, Divider } from 'semantic-ui-react';
 import { connect } from 'react-redux'
-import * as actions from '../../store/actions/index';
 import { signUp } from '../../store/actions/auth';
 import { Link } from 'react-router-dom';
-import { validate } from 'validate.js'
-import validator from './validator'
 import './SignUp.css'
 
-// TODO: Muna eftir mer = muna að útfæra
-// TODO: Muna / Gleymt - aligna
 // TODO: "": undefined when admin...
-// TODO: Setja i state form info = sent
+// DONE: Setja i state form info = sent
+// TODO: Super admin still checked if admin unchecked
+// TODO: ATH. Admin og Super admin eru bara timabundid
+// TODO: Note validate.js
 
 class SignUp extends Component {
   state = {
@@ -95,25 +93,25 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.signUp(this.state.form);
-    // console.loghis.state)
+    // console.log(this.state.form)
   }
 
   render() {
     const { admin, superAdmin } = this.state.form;
-    const { auth, authError } = this.props;
+    const { authError } = this.props;
     console.log(authError)
     return (
       <div className="login-form">
         <Grid textAlign='center' className='grid-style' verticalAlign='middle'>
           <Grid.Column textAlign='left' className='grid-column'>
-            <Header as='h1' textAlign='center'>
-              <Header.Content>
-                Stofna Aðgang
-              </Header.Content>
-            </Header>
 
             <Form size='large' onSubmit={this.handleSubmit}>
               <Segment>
+                <Header as='h1' textAlign='center'>
+                  <Header.Content>
+                    Stofna Aðgang
+              </Header.Content>
+                </Header>
                 {/* <Header as='h1' textAlign='center'>Nýskráning</Header> */}
                 <Form.Group widths='equal'>
                   <Form.Input id='name' icon='user' iconPosition='left' label='Nafn' placeholder='Jón Jónsson' onChange={this.handleChange} required />
@@ -136,8 +134,8 @@ class SignUp extends Component {
                 <div className="invalid-feedback">{this.state.formErrors.confirmPassword}</div>
                 <Divider />
                 <FormCheckbox label='Stjórnandi' id='admin' checked={admin} onClick={this.handleCheckClick} />
-                <FormCheckbox label='Ofur Stjórnandi' id='superAdmin' checked={superAdmin} onClick={this.handleCheckClick} disabled={!this.state.form.admin} />
-                <Button color='green' fluid size='large' disabled={!(
+                <FormCheckbox label='Ofur Stjórnandi' id='superAdmin' checked={superAdmin && admin} onClick={this.handleCheckClick} disabled={!this.state.form.admin} />
+                <Button color='twitter' fluid size='large' disabled={!(
                   this.state.formValidity.email &&
                   this.state.formValidity.name &&
                   this.state.formValidity.password &&
@@ -145,7 +143,7 @@ class SignUp extends Component {
                   Stofna
                 </Button>
                 <Message className="message-box">
-                  Með aðgang? <Link to='/'>Innskrá</Link>
+                  Með aðgang? <Link to='/'><span className='second-info'>Innskrá</span></Link>
                 </Message>
                 {/* <Grid.Row textAlign='center' className='grid-column'>
                   Með aðgang? <Link to='/'>Innskrá</Link>

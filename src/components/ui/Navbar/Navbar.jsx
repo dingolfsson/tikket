@@ -1,5 +1,5 @@
 import './Navbar.css'
-import { Menu, Container, Icon, Breadcrumb } from 'semantic-ui-react'
+import { Menu, Container, Icon } from 'semantic-ui-react'
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -21,13 +21,13 @@ class Navbar extends Component {
 
     return (
       <React.Fragment>
-        <Menu size='large' fixed='top' inverted>
+        <Menu size='large' fixed='top' secondary>
           <Container>
             <Menu.Item header name='Tikket'>
-              <img alt='logo' src='/logo.png' />
+              <img alt='logo' src='/logo5.png' />
             </Menu.Item>
             <Menu.Item name='School'>
-              Nafn skóla
+              Hörðuvallaskóli
           </Menu.Item>
             <Menu.Menu position='right'>
               {admin ? (
@@ -53,7 +53,13 @@ class Navbar extends Component {
               >
                 Beiðnir
             </Menu.Item>
-              <Menu.Item name='user' active={activeItem === 'user'} onClick={this.handleItemClick}>
+              <Menu.Item
+                exact
+                as={NavLink}
+                to={'/profile'}
+                name='user'
+                active={activeItem === 'user'}
+                onClick={this.handleItemClick}>
                 <Icon name='user circle' />
               </Menu.Item>
 
