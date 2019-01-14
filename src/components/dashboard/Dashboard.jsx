@@ -14,7 +14,6 @@ class Dashboard extends Component {
     if (admin) {
       tick = tickets && tickets.map(item => item)
     }
-    console.log(process.env.REACT_APP_API_KEY)
 
     if (!tickets) {
       return (
