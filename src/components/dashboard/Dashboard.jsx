@@ -4,7 +4,6 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Container, Loader, Dimmer } from 'semantic-ui-react';
 import './Dashboard.css'
-
 import TicketList from '../tickets/TicketList';
 
 class Dashboard extends Component {
@@ -15,6 +14,7 @@ class Dashboard extends Component {
     if (admin) {
       tick = tickets && tickets.map(item => item)
     }
+    console.log(process.env.REACT_APP_API_KEY)
 
     if (!tickets) {
       return (

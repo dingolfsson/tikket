@@ -12,6 +12,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth'
 import 'moment/locale/is'
+require('dotenv').config();
 
 const store = createReduxStore()
 
