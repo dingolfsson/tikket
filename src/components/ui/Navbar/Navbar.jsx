@@ -1,5 +1,5 @@
 import './Navbar.css'
-import { Menu, Container, Icon, Breadcrumb } from 'semantic-ui-react'
+import { Menu, Container, Icon } from 'semantic-ui-react'
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -24,10 +24,10 @@ class Navbar extends Component {
         <Menu size='large' fixed='top' secondary>
           <Container>
             <Menu.Item header name='Tikket'>
-              <img alt='logo' src='/logo.png' />
+              <img alt='logo' src='/logo5.png' />
             </Menu.Item>
             <Menu.Item name='School'>
-              Nafn skóla
+              Hörðuvallaskóli
           </Menu.Item>
             <Menu.Menu position='right'>
               {admin ? (

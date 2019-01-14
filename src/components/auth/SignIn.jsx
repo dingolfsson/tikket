@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Input, Checkbox, Grid, Header, Segment, Button, Message, Divider, GridColumn } from 'semantic-ui-react';
+import { Form, Checkbox, Grid, Header, Segment, Button, Message } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import './Auth.css'
 
 // TODO: Forgot password
@@ -42,8 +41,6 @@ class SignIn extends Component {
                 <Form.Input fluid icon='lock'
                   iconPosition='left' type='password' placeholder='Lykilorð' id='password' onChange={this.handleChange} required />
                 <Grid>
-
-
                   <Grid.Column floated='left' width={6}>
                     <Form.Field className='remember' control={Checkbox} label={{ children: 'Muna eftir mér' }} />
 

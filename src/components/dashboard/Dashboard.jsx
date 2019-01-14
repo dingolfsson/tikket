@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Container, Loader, Dimmer } from 'semantic-ui-react';
-import PropTypes from 'prop-types'
 import './Dashboard.css'
 
 import TicketList from '../tickets/TicketList';
@@ -27,11 +26,9 @@ class Dashboard extends Component {
 
     return (
       <div>
-
         <Container text style={{ marginTop: '7em' }}>
           <TicketList tickets={tick} />
         </Container>
-
       </div>
     )
   }
@@ -45,9 +42,6 @@ const mapStateToProps = (state) => {
     admin: admin
   }
 }
-
-// export default connect(mapStateToProps)
-//   (Dashboard)
 
 export default compose(
   firestoreConnect([

@@ -1,7 +1,7 @@
+import './App.css';
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import './App.css';
-import { Container, Loader } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 
 import Navbar from './components/ui/Navbar/Navbar';

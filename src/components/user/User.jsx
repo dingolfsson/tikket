@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Container, Form, Button, Loader, Dimmer, Grid, Header, Divider } from 'semantic-ui-react';
+import { Container, Form, Button, Grid, Header, Divider } from 'semantic-ui-react';
 import './User.css'
 
 class User extends Component {
@@ -80,23 +80,13 @@ class User extends Component {
 
 
   render() {
-    const { users, auth, admin } = this.props;
-    if (users) {
-      const tmp = users.filter(user => user.id === auth.uid)
-      console.log(tmp)
-    }
-    // console.log(auth.uid === users.id)
-    // if (!tickets) {
-    //   return (
-    //     <Dimmer active inverted>
-    //       <Loader size='massive' inline='centered'>Sæki gögn</Loader>
-    //     </Dimmer>
-    //   )
+    // const { users, auth } = this.props;
+    // if (users) {
+    //   const tmp = users.filter(user => user.id === auth.uid)
     // }
 
     return (
       <div>
-
         <Container text style={{ marginTop: '7em' }}>
           <Header>Aðgangur - í vinnslu</Header>
           <Divider clearing />
@@ -118,6 +108,10 @@ class User extends Component {
                     <Form.Input id='room' icon='map marker alternate' iconPosition='left' label='Kennslustofa' placeholder='42' onChange={this.handleChange} />
                     <Form.Input id='phone' icon='phone' iconPosition='left' label='Sími' placeholder='555-1234' onChange={this.handleChange} />
                   </Form.Group>
+                  <Form.Group widths='equal'>
+                    <Form.Input className={this.errorClass(this.state.formErrors.email)} id='email' icon='mail' iconPosition='left' label='Póstfang' placeholder='jon@kopavogur.is' onChange={this.handleChange} />
+                  </Form.Group>
+                  <div className="invalid-feedback">{this.state.formErrors.email}</div>
                 </Form>
               </Grid.Column>
             </Grid.Row>
@@ -127,16 +121,12 @@ class User extends Component {
                 <Header
                   as='h4'
                   content='Aðgangur'
-                  subheader='Innskráning og annað' />
+                  subheader='Breyta um lykilorð' />
               </Grid.Column>
               <Grid.Column width={12}>
                 <Form onSubmit={this.handleSubmit}>
 
                   <Form.Group widths='equal'>
-                    <Form.Input className={this.errorClass(this.state.formErrors.email)} id='email' icon='mail' iconPosition='left' label='Póstfang' placeholder='jon@kopavogur.is' onChange={this.handleChange} />
-                  </Form.Group>
-                  <div className="invalid-feedback">{this.state.formErrors.email}</div>
-                  <Form.Group>
                     <Form.Input id='oldPassword' icon='lock' iconPosition='left' type='password' label='Gamla lykilorðið' placeholder='Gamla lykilorðið' onChange={this.handleChange} />
                   </Form.Group>
                   <Form.Group widths='equal'>
@@ -165,9 +155,6 @@ const mapStateToProps = (state) => {
     admin: admin
   }
 }
-
-// export default connect(mapStateToProps)
-//   (Dashboard)
 
 export default compose(
   firestoreConnect([

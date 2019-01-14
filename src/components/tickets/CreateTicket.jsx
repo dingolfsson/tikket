@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { Form, Breadcrumb, Dimmer, Loader, Checkbox, Card, Image, Radio, Icon, Input, Grid, Header, Segment, Button, Message, Label, Divider, FormCheckbox, Container } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Form, Card, Icon, Grid, Header, Segment, Button, Message, Divider, FormCheckbox } from 'semantic-ui-react';
 import { createTicket } from '../../store/actions/ticket';
-import faker from 'faker'
 
 import './CreateTicket.css';
 
@@ -68,7 +64,7 @@ class CreateTicket extends Component {
       this.handleSuccess();
     }
     return (
-      <div className="login-form">
+      <div className="login-form" style={{ marginTop: '2em' }}>
         <Grid textAlign='center' className='grid-style' verticalAlign='middle'>
           <Grid.Column textAlign='left' className='grid-column'>
             {!success ? (

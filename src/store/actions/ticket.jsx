@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes'
-import { auth, db } from '../../config/firebase'
+import { db } from '../../config/firebase'
 
 export const createTicket = (ticket) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -8,7 +8,7 @@ export const createTicket = (ticket) => {
     const profile = getState().firebase.profile;
     database.collection('tickets').add({
       ...ticket,
-      authorName: profile.name,
+      name: profile.name,
       authorId: authorId,
       phone: profile.phone,
       room: profile.room,

@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import { Form, Checkbox, FormCheckbox, Icon, Input, Grid, Header, Segment, Button, Message, Label, Divider } from 'semantic-ui-react';
+import { Form, FormCheckbox, Grid, Header, Segment, Button, Message, Divider } from 'semantic-ui-react';
 import { connect } from 'react-redux'
-import * as actions from '../../store/actions/index';
 import { signUp } from '../../store/actions/auth';
 import { Link } from 'react-router-dom';
-import { validate } from 'validate.js'
-import validator from './validator'
 import './SignUp.css'
 
 // TODO: "": undefined when admin...
 // DONE: Setja i state form info = sent
 // TODO: Super admin still checked if admin unchecked
 // TODO: ATH. Admin og Super admin eru bara timabundid
+// TODO: Note validate.js
 
 class SignUp extends Component {
   state = {
@@ -94,13 +92,13 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // this.props.signUp(this.state.form);
-    console.log(this.state.form)
+    this.props.signUp(this.state.form);
+    // console.log(this.state.form)
   }
 
   render() {
     const { admin, superAdmin } = this.state.form;
-    const { auth, authError } = this.props;
+    const { authError } = this.props;
     console.log(authError)
     return (
       <div className="login-form">
