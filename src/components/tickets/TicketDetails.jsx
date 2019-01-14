@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import _ from 'lodash'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import faker from 'faker';
-import { Table, Container, Grid, Breadcrumb, List, Button, Loader, Icon, Segment, Card, Image, Feed, AccordionTitle } from 'semantic-ui-react'
-import moment from 'moment';
+import { Container, Grid, List, Button, Loader, Icon, Segment, Card } from 'semantic-ui-react'
 import { solveTicket } from '../../store/actions/ticket';
 import './TicketDetails.css'
-// TODO: Make solved a dispatch
-// TODO: Card Meta = authorTitle
+// DONE: Make solved a dispatch
+// DONE: Card Meta = authorTitle
+// TODO: Ticket date
 
 class TicketDetails extends Component {
 
@@ -19,7 +17,7 @@ class TicketDetails extends Component {
   }
 
   render() {
-    const { ticket, auth, admin, id, success } = this.props;
+    const { ticket, auth, admin } = this.props;
 
     if (!ticket) {
       return <Loader />
@@ -30,13 +28,6 @@ class TicketDetails extends Component {
     console.log(ticket)
     return (
       <Container style={{ marginTop: '8em' }}>
-        <Breadcrumb>
-          <Breadcrumb.Section link>Beiðnir</Breadcrumb.Section>
-          <Breadcrumb.Divider icon='right angle' />
-          <Breadcrumb.Section link>{ticket.authorName}</Breadcrumb.Section>
-          <Breadcrumb.Divider icon='right angle' />
-          <Breadcrumb.Section active>{id}</Breadcrumb.Section>
-        </Breadcrumb>
         <Segment color='blue' padded>
           <Grid columns={2} divided>
             <Grid.Row>

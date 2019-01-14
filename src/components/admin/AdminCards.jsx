@@ -1,15 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Statistic, Image, Icon, Grid, Loader, Dimmer } from 'semantic-ui-react'
-import faker from 'faker'
+import { Card, Icon, Grid } from 'semantic-ui-react'
 import './AdminCards.css'
 
 // TODO: Undir 1200 px X = Rusl. Laga
 
 const AdminCards = (props) => {
-  const { classes, title, info, icon, iconText, color, secondaryIcon } = props
-  // console.log(title)
-  // console.log(info)
+  const { title, info, icon, iconText, color, secondaryIcon } = props
 
   return (
     <Card className='admin-cards'>

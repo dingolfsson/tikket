@@ -36,7 +36,7 @@ exports.createdAccount = functions.auth
         const newUser = doc.data();
         const notification = {
           content: 'stofnaði aðgang',
-          user: `${newUser.name}`,
+          user: newUser.name,
           time: admin.firestore.FieldValue.serverTimestamp()
         }
         return createNotification(notification);
