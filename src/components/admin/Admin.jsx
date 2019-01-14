@@ -57,8 +57,10 @@ class Admin extends Component {
               <AdminCards title={'Stjórnendur'} info={admins} icon={'key'} iconText={superAdmins.length + ' ofur'} color={'yellow'} secondaryIcon={'chess queen'} />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column computer={6} tablet={8} mobile={16}>
+        </Grid>
+        <Grid>
+          <Grid.Row columns={16}>
+            <Grid.Column computer={8} tablet={8} mobil={16}>
               <AdminNotifications notifications={notifications} />
             </Grid.Column>
           </Grid.Row>

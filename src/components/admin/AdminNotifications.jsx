@@ -5,7 +5,7 @@ import { Feed, Card } from 'semantic-ui-react';
 const Notifications = (props) => {
   const { notifications } = props;
   return (
-    <Card>
+    <Card fluid>
       <Card.Content>
         <Card.Header>Tilkynningar</Card.Header>
       </Card.Content>
@@ -19,7 +19,7 @@ const Notifications = (props) => {
                 <Feed.Content>
                   <Feed.Date content={moment(item.time.toDate()).fromNow()} />
                   <Feed.Summary>
-                    {item.user}
+                    {item.user} stofnaði aðgang
                   </Feed.Summary>
                 </Feed.Content>
               </Feed.Event>
