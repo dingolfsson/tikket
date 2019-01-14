@@ -1,15 +1,16 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth'
+require('dotenv').config();
 
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp({
-  apiKey: "AIzaSyB-HcV2dV4YcZcnrxzWZm3L11Xxxvhvbzk",
-  authDomain: "daniel-in.firebaseapp.com",
-  databaseURL: "https://daniel-in.firebaseio.com",
-  projectId: "daniel-in",
-  storageBucket: "daniel-in.appspot.com",
-  messagingSenderId: "120291802575"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDOmain: process.env.REACT_APP_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE,
+  projectId: process.env.REACT_APP_PROJECT,
+  storageBucket: process.env.REACT_APP_STORAGE,
+  messagingSenderId: process.env.REACT_APP_MESSAGE
 });
 
 const auth = firebaseApp.auth();
