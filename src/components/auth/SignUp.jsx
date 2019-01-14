@@ -98,8 +98,6 @@ class SignUp extends Component {
 
   render() {
     const { admin, superAdmin } = this.state.form;
-    const { authError } = this.props;
-    console.log(authError)
     return (
       <div className="login-form">
         <Grid textAlign='center' className='grid-style' verticalAlign='middle'>

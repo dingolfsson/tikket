@@ -28,8 +28,6 @@ export const signOut = () => {
 export const signUp = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const database = db;
-
-    console.log(newUser)
     auth.createUserWithEmailAndPassword(
       newUser.email,
       newUser.password
@@ -43,10 +41,8 @@ export const signUp = (newUser) => {
         superAdmin: newUser.superAdmin
       })
     }).then(() => {
-      console.log('success')
       dispatch({ type: actionTypes.SIGNUP_SUCCESS })
     }).catch(err => {
-      console.log('error')
       dispatch({ type: actionTypes.SIGNUP_ERROR, err })
     })
   }

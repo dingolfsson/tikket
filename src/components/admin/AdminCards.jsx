@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Icon, Grid } from 'semantic-ui-react'
 import './AdminCards.css'
 
-// TODO: Undir 1200 px X = Rusl. Laga
+// Done: Undir 1200 px X = Rusl. Laga
 
 const AdminCards = (props) => {
   const { title, info, icon, iconText, color, secondaryIcon } = props

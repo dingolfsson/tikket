@@ -5,13 +5,12 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/auth';
 
-// TODO: Beiðnir always shows as active
+// Done: Beiðnir always shows as active
 
 class Navbar extends Component {
 
   state = { activeItem: '' }
   handleItemClick = (e, { name }) => {
-    console.log(name)
     this.setState({ activeItem: name })
   }
 
