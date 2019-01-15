@@ -1,6 +1,12 @@
 import * as actionTypes from './actionTypes'
 import { auth, db } from '../../config/firebase'
 
+// Firebase = sign new user up
+// Firestore = communicate with firestore db
+
+// signIn: function
+// @params credentials (email: string, password: string)
+// @return: dispatch
 export const signIn = (credentials) => {
   return (dispatch, getState, { getFirebase }) => {
     auth.signInWithEmailAndPassword(
@@ -14,6 +20,8 @@ export const signIn = (credentials) => {
   }
 }
 
+// signOut: function
+// @return dispatch
 export const signOut = () => {
   return (dispatch, getState, { getFirebase }) => {
     auth.signOut().then(() => {
@@ -22,8 +30,9 @@ export const signOut = () => {
   }
 }
 
-// Firebase = sign new user up
-// Firestore = communicate with firestore db
+// signUp: funcation
+// @params newUser: object
+// @return dispatch
 export const signUp = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const database = db

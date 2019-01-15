@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/auth';
 import './Navbar.css'
 
+// NavBar.jsx
 class Navbar extends Component {
 
   state = { activeItem: '' }
@@ -12,6 +13,8 @@ class Navbar extends Component {
     this.setState({ activeItem: name })
   }
 
+  // function: render
+  // return jsx
   render() {
     // activeItem: string (default: '')
     const { activeItem } = this.state
@@ -73,6 +76,9 @@ class Navbar extends Component {
   }
 }
 
+// mapDispatchToProps: function
+// @props: dispatch
+// @return dispatch action
 const mapDispatchToProps = (dispatch) => {
   return {
     signOut: () => dispatch(signOut())

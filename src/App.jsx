@@ -13,6 +13,9 @@ import Admin from './components/admin/Admin'
 import CreateTicket from './components/tickets/CreateTicket'
 import User from './components/user/User'
 
+// App.jsx
+// App: Component
+// @return jsx
 class App extends Component {
   // App: Primary component - fired up by index.js
   render() {
@@ -53,13 +56,14 @@ class App extends Component {
   }
 }
 
-// mapStateToProps
-// isAuthenticated: boolean (default: false)
-// isAdmin: boolean (default: false)
-// isLoaded: boolean (default: false)
+// mapStateToProps: function
+// @params state
 // @return: [isAuthenticated, isAdmin, isLoaded]
 const mapStateToProps = state => {
   const admin = state.firebase.profile.admin
+  // isAuthenticated: boolean (default: false)
+  // isAdmin: boolean (default: false)
+  // isLoaded: boolean (default: false)
   return {
     isAuthenticated: state.firebase.auth.uid !== undefined,
     isAdmin: admin,

@@ -82,6 +82,12 @@ class TicketDetails extends Component {
   }
 }
 
+// mapStateToProps: function
+// @params1 state
+// @params2 ownProps
+// Description: Fetch ticket, authentication validation
+//              admin, success and ticket id
+// @return [ticket, auth, admin, success, id]
 const mapStateToProps = (state, ownProps) => {
   const admin = state.firebase.profile.admin;
   const id = ownProps.match.params.id;
@@ -101,6 +107,9 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+// mapDispatchToProps: function
+// @params dispatch
+// @return dispatch action
 const mapDispatchToProps = (dispatch) => {
   return {
     solveTicket: (ticket, id) => dispatch(solveTicket(ticket, id))

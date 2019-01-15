@@ -17,13 +17,18 @@ class CreateTicket extends Component {
     assignedAgent: null,
   }
 
+  // handleOptionChange: function
+  // @params value
+  // @setState selectedOption
   handleOptionChange = (value) => {
     this.setState({
       selectedOption: value
     });
   }
 
-  // Toggle: Priority
+  // handleCheckClick: function
+  // @params e: event
+  // @setState priority
   handleCheckClick = (e) => {
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
     this.setState({
@@ -31,7 +36,9 @@ class CreateTicket extends Component {
     })
   }
 
-  // Update: state form
+  // handleChange: function
+  // @params e: evente
+  // @setState change value of keys
   handleChange = (e) => {
     const { id, value } = e.target
     this.setState({
@@ -39,26 +46,31 @@ class CreateTicket extends Component {
     })
   }
 
-  // Submit: state is dispatched
-  // Errors: Success = False
+  // handleSubmit: function
+  // @params e: event
+  // @dispatch createTicket
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createTicket(this.state);
   }
 
+  // handleCancel: function
+  // @history: push
   handleCancel = () => {
     this.props.history.push('/');
   }
 
-  // if: Success = True
+  // handleSuccess: function
+  // @history: push
   handleSuccess = () => {
     setTimeout(() => {
       this.props.history.push('/');
     }, 4000);
   }
 
+  // render: function
+  // @return jsx
   render() {
-
     // priority: boolean (default: false)
     const { priority } = this.state;
     // success: boolean (default: false)
@@ -68,6 +80,8 @@ class CreateTicket extends Component {
     if (success) {
       this.handleSuccess();
     }
+
+    // jsx
     return (
       <div className="login-form" style={{ marginTop: '2em' }}>
         <Grid textAlign='center' className='grid-style' verticalAlign='middle'>
@@ -209,6 +223,9 @@ class CreateTicket extends Component {
   }
 }
 
+// mapStateToProps: function
+// @params state
+// return [success: boolean]
 const mapStateToProps = (state) => {
   // Return: Properties for the component
   // success: boolean (default: false)
@@ -217,6 +234,9 @@ const mapStateToProps = (state) => {
   }
 }
 
+// mapDispatchToProps: function
+// @params dispatch
+// @return dispatch action
 const mapDispatchToProps = (dispatch) => {
   return {
     createTicket: (ticket) => dispatch(createTicket(ticket))

@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../../../store/actions/auth'
 
+// SignedInLinks: function
+// @description: NavLinks for signed in users
+// @params props
+// @return jsx
 const SignedInLinks = (props) => {
   return (
     <ul className='right hide-on-med-and-down test'>
@@ -23,8 +27,10 @@ const SignedInLinks = (props) => {
   )
 }
 
-// Only signed in users can see the logout button
-// onClick a dispatch is made to log out the signed in user
+// mapDispatchToProps: function
+// Description: dispatch action to sign out user
+// @params dispatch
+// @return dispatch action
 const mapDispatchToProps = dispatch => {
   return {
     signOut: () => dispatch(signOut())

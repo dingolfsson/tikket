@@ -93,6 +93,8 @@ class SignUp extends Component {
     this.props.signUp(this.state.form);
   }
 
+  // render: function
+  // @return jsx
   render() {
     const { admin, superAdmin } = this.state.form;
     return (
@@ -148,6 +150,9 @@ class SignUp extends Component {
   }
 }
 
+// mapStateToPropsL function
+// @params state
+// @return [auth, authError]
 const mapStateToProps = (state) => {
   // Return: Properties for the component
   // authError: string (default: '')
@@ -158,6 +163,9 @@ const mapStateToProps = (state) => {
   }
 }
 
+// mapDispatchToProps: function
+// @params dispatch
+// @return dispatch action
 const mapDispatchToProps = (dispatch) => {
   return {
     signUp: (newUser) => dispatch(signUp(newUser))

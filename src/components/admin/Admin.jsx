@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Container, Grid, Loader, Dimmer, LabelDetail } from 'semantic-ui-react';
+import { Container, Grid, Loader, Dimmer } from 'semantic-ui-react';
 import AdminCards from './AdminCards'
 import AdminNotifications from './AdminNotifications'
 
-// TODO: Sækja daga á beiðnum. X beiðnir síðustu Y daga.
-// TODO. Superadmins
-// TODO: New users last X days.
 class Admin extends Component {
   state = {
     ticks: null,
@@ -17,6 +14,7 @@ class Admin extends Component {
     loaded: false,
   }
 
+  // componentDidMount: function lifecycle
   componentDidMount() {
     const { admin } = this.props;
     // if: user isn't an admin, he'll be
@@ -26,6 +24,8 @@ class Admin extends Component {
     }
   }
 
+  // render: function
+  // @return jsx
   render() {
     const { notifications, tickets, users } = this.props;
     // Initilize: various properties are gathered that are
@@ -75,6 +75,9 @@ class Admin extends Component {
   }
 }
 
+// mapStateToProps: function
+// params state
+// return [ticket, users, auth, notifications, admin]
 const mapStateToProps = (state) => {
   const admin = (state.firebase.profile.admin)
   // Return: Properties for the component

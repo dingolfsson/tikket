@@ -1,7 +1,10 @@
 import * as actionTypes from './actionTypes'
 import { db } from '../../config/firebase'
 
-// Action called when a new ticket is created.
+// createTicket: function
+// @Description: Action called when a new ticket is created.
+// @params ticket: object
+// @return dispatch
 export const createTicket = (ticket) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const database = db
@@ -23,7 +26,11 @@ export const createTicket = (ticket) => {
   }
 }
 
-// Action called when ticket is marked as solved
+// solveTicket: function
+// @Description: Action called when ticket is marked as solved
+// @params1 ticket: object
+// @params2 id: string
+// @return dispatch
 export const solveTicket = (ticket, id) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const database = db

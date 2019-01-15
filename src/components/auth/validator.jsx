@@ -1,5 +1,6 @@
 import { validate } from 'validate.js'
 
+// constrains: objects
 const constraints = {
   from: {
     email: {
@@ -9,8 +10,8 @@ const constraints = {
   password: {
     presence: true,
     length: {
-      minimum: 12,
-      message: 'Lágmark 12 stafir'
+      minimum: 8,
+      message: 'Lágmark 8 stafir'
     }
   },
   confirmPassword: {
@@ -24,19 +25,23 @@ const constraints = {
   }
 }
 
+// validator: function
+// params1 target: key
+// params2 value: string
+// params3 compareValue: string
+// @return [boolean, message: string]
 const validator = (target, value, compareValue) => {
-  console.log(compareValue)
   if (target === 'password') {
-    console.log(validate({ password: value }, constraints))
+    validate({ password: value }, constraints)
   }
   if (target === 'confirmPassword') {
-    console.log(validate({ password: value, confirmPassword: compareValue }, constraints))
+    validate({ password: value, confirmPassword: compareValue }, constraints)
   }
   if (target === 'email') {
-    console.log(validate({ from: value }, constraints))
+    validate({ from: value }, constraints)
   }
   if (target === 'room') {
-    console.log(validate({ room: value }, constraints))
+    validate({ room: value }, constraints)
   }
 }
 

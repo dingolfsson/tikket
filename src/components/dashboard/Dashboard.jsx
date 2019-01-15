@@ -7,8 +7,8 @@ import TicketList from '../tickets/TicketList'
 import './Dashboard.css'
 
 class Dashboard extends Component {
-  // This is the landing page for authenticated users
-  // On load it also gathers tickets by users
+  // render: function
+  // @return jsx
   render() {
     const { tickets, auth, admin } = this.props
     // Data: Users can only see their own tickets
@@ -27,6 +27,7 @@ class Dashboard extends Component {
       )
     }
 
+    // jsx
     return (
       <div>
         <Container text style={{ marginTop: '7em' }}>

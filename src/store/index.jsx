@@ -7,8 +7,11 @@ import '../config/firebase'
 import 'firebase/auth'
 import 'firebase/firestore'
 
+// Initilised State
 const initialState = {}
 
+// : function
+// return: store
 export default () => {
   return createStore(
     createRootReducer,

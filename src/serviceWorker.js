@@ -10,17 +10,21 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read http://bit.ly/CRA-PWA
 
+// isLocalHost: boolean
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.1/8 is considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+  // [::1] is the IPv6 localhost address.
+  window.location.hostname === '[::1]' ||
+  // 127.0.0.1/8 is considered localhost for IPv4.
+  window.location.hostname.match(
+    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+  )
 )
 
-export function register (config) {
+// register: function
+// params config
+// return void
+export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href)
@@ -43,7 +47,7 @@ export function register (config) {
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit http://bit.ly/CRA-PWA'
+            'worker. To learn more, visit http://bit.ly/CRA-PWA'
           )
         })
       } else {
@@ -54,7 +58,10 @@ export function register (config) {
   }
 }
 
-function registerValidSW (swUrl, config) {
+// registerValidSW: function
+// params1 swUrl
+// params2 config
+function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
@@ -71,7 +78,7 @@ function registerValidSW (swUrl, config) {
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
+                'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
               )
 
               // Execute callback
@@ -98,7 +105,10 @@ function registerValidSW (swUrl, config) {
     })
 }
 
-function checkValidServiceWorker (swUrl, config) {
+// checkValidServiceWorker: function
+// params1 swUrl
+// params2 config
+function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
@@ -126,7 +136,8 @@ function checkValidServiceWorker (swUrl, config) {
     })
 }
 
-export function unregister () {
+// unregister: function
+export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {
       registration.unregister()

@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { Container, Form, Button, Grid, Header, Divider } from 'semantic-ui-react';
 import './User.css'
 
+// User.jsx
 class User extends Component {
   state = {
     form: {
@@ -78,7 +79,8 @@ class User extends Component {
     console.log(this.state.form)
   }
 
-
+  // render: function
+  // @return: jsx
   render() {
     // const { users, auth } = this.props;
     // if (users) {
@@ -147,6 +149,11 @@ class User extends Component {
   }
 }
 
+// mapStateToProps: function
+// @Description: Fetch info about all users
+// validate if user is authenticated and if user is admin
+// @params state
+// @return [users, auth, admin]
 const mapStateToProps = (state) => {
   const admin = (state.firebase.profile.admin)
   // Return: Properties for the component

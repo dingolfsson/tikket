@@ -5,9 +5,6 @@ import * as actions from '../../store/actions/index';
 import { Link } from 'react-router-dom';
 import './Auth.css'
 
-// TODO: Forgot password
-// TODO: Remember me
-
 class SignIn extends Component {
   state = {
     email: '',
@@ -25,6 +22,8 @@ class SignIn extends Component {
     this.props.signIn(this.state);
   }
 
+  // render: function
+  // @return jsx
   render() {
     const { authError } = this.props;
 
@@ -66,6 +65,9 @@ class SignIn extends Component {
   }
 }
 
+// mapStateToProps: function
+// params state
+// @return [isLoaded, authError, auth]
 const mapStateToProps = (state) => {
   // Return: Properties for the component
   // isLoaded: bool (default: false)
@@ -78,6 +80,9 @@ const mapStateToProps = (state) => {
   }
 }
 
+// mapDispatchToProps: function
+// @params dispatch
+// @return dispatch action
 const mapDispatchToProps = (dispatch) => {
   return {
     signIn: (creds) => dispatch(actions.signIn(creds))

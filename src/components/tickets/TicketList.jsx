@@ -13,6 +13,8 @@ class TicketList extends Component {
     direction: null,
   }
 
+  // componentDidMount: function
+  // @setState data: props.tickets
   componentDidMount() {
     this.setState({
       data: this.props.tickets
@@ -42,6 +44,8 @@ class TicketList extends Component {
     this.props.history.push("/ticket/" + id);
   }
 
+  // render: function
+  // @return jsx
   render() {
     const { column, data, direction } = this.state
 

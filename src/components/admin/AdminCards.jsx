@@ -2,6 +2,9 @@ import React from 'react'
 import { Card, Icon, Grid } from 'semantic-ui-react'
 import './AdminCards.css'
 
+// AdminCards: Container
+// params props
+// @return card
 const AdminCards = (props) => {
   // Props: From Admin component
   const { title, info, icon, iconText, color, secondaryIcon } = props
