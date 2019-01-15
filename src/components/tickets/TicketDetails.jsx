@@ -6,12 +6,10 @@ import { compose } from 'redux';
 import { Container, Grid, List, Button, Loader, Icon, Segment, Card } from 'semantic-ui-react'
 import { solveTicket } from '../../store/actions/ticket';
 import './TicketDetails.css'
-// DONE: Make solved a dispatch
-// DONE: Card Meta = authorTitle
-// TODO: Ticket date
 
 class TicketDetails extends Component {
 
+  // Dispatch: OnClick Solve - update state of ticket
   solvedHandle = () => {
     this.props.solveTicket(this.props.ticket, this.props.id)
   }
@@ -19,13 +17,16 @@ class TicketDetails extends Component {
   render() {
     const { ticket, auth, admin } = this.props;
 
+    // Condition: while ticket are being collected, display loader.
     if (!ticket) {
       return <Loader />
     }
+
+    // Condition: user isn't owner of ticket and not admin, redirect.
     if (ticket.authorId !== auth.uid && !admin) {
       return <Redirect to='/' />
     }
-    console.log(ticket)
+
     return (
       <Container style={{ marginTop: '8em' }}>
         <Segment color='blue' padded>
@@ -34,7 +35,6 @@ class TicketDetails extends Component {
               <Grid.Column width={4}>
                 <Card>
                   <Card.Content>
-                    {/* <Icon floated='left' size='tiny' src={faker.image.avatar()} circular /> */}
                     <Icon floated='left' size='large' name='user circle' circular />
                     <Card.Header>{ticket.authorName}</Card.Header>
                     <Card.Meta>Skólastjóri</Card.Meta>
@@ -63,11 +63,8 @@ class TicketDetails extends Component {
                 <Card fluid>
                   <Card.Content>
                     <Card.Header style={{ fontSize: '2em' }}>{ticket.title} {ticket.priority ? <Icon color='red' name='exclamation' /> : null}</Card.Header>
-                    {/* <Card.Meta content={ticket.selectedOption} /> */}
                     <Card.Meta content={<Icon name={ticket.selectedOption} />} />
-                    {/* <Card.Description content={faker.lorem.sentence(20)} /> */}
                     <Card.Description content={ticket.description} />
-                    {/* <Card.Description content={ticket.description} /> */}
                   </Card.Content>
                   <Card.Content extra>
                     {admin ?
@@ -80,7 +77,6 @@ class TicketDetails extends Component {
             </Grid.Row>
           </Grid>
         </Segment>
-
       </Container>
     )
   }
@@ -90,6 +86,12 @@ const mapStateToProps = (state, ownProps) => {
   const admin = state.firebase.profile.admin;
   const id = ownProps.match.params.id;
   const ticket = state.firestore.data.tickets ? state.firestore.data.tickets[id] : null;
+  // Return: Properties for the component
+  // ticket: object
+  // auth: object
+  // admin: boolean
+  // success: boolean
+  // id: string
   return {
     ticket: ticket,
     auth: state.firebase.auth,

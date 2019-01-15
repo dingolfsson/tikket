@@ -1,11 +1,9 @@
-import './Navbar.css'
 import { Menu, Container, Icon } from 'semantic-ui-react'
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/auth';
-
-// Done: Beiðnir always shows as active
+import './Navbar.css'
 
 class Navbar extends Component {
 
@@ -15,7 +13,9 @@ class Navbar extends Component {
   }
 
   render() {
+    // activeItem: string (default: '')
     const { activeItem } = this.state
+    // admin: boolean (default: false)
     const { admin } = this.props;
 
     return (

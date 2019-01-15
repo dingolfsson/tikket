@@ -5,12 +5,6 @@ import { signUp } from '../../store/actions/auth';
 import { Link } from 'react-router-dom';
 import './SignUp.css'
 
-// TODO: "": undefined when admin...
-// DONE: Setja i state form info = sent
-// TODO: Super admin still checked if admin unchecked
-// TODO: ATH. Admin og Super admin eru bara timabundid
-// TODO: Note validate.js
-
 class SignUp extends Component {
   state = {
     form: {
@@ -29,6 +23,7 @@ class SignUp extends Component {
     canSumbit: false,
   }
 
+  // Remove: Not used in production build.
   handleCheckClick = (e) => {
     const key = e.target.id;
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
@@ -41,6 +36,7 @@ class SignUp extends Component {
     })
   }
 
+  // Update: state form
   handleChange = (e) => {
     const { form } = this.state;
     const { id, value } = e.target
@@ -53,6 +49,7 @@ class SignUp extends Component {
       () => { this.validateField(id, value) });
   }
 
+  // Temporary validation for fields
   validateField(name, value) {
     const fieldValidationErrors = this.state.formErrors
     const validity = this.state.formValidity
@@ -86,6 +83,7 @@ class SignUp extends Component {
     });
   }
 
+  // For: Displaying error messages for incorrect fields.
   errorClass(error) {
     return (error.length === 0 ? '' : 'is-invalid');
   }
@@ -101,7 +99,6 @@ class SignUp extends Component {
       <div className="login-form">
         <Grid textAlign='center' className='grid-style' verticalAlign='middle'>
           <Grid.Column textAlign='left' className='grid-column'>
-
             <Form size='large' onSubmit={this.handleSubmit}>
               <Segment>
                 <Header as='h1' textAlign='center'>
@@ -152,6 +149,9 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // Return: Properties for the component
+  // authError: string (default: '')
+  // auth: object
   return {
     auth: state.firebase.auth,
     authError: state.auth.authError

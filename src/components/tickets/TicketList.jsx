@@ -3,14 +3,8 @@ import { withRouter } from "react-router";
 import _ from 'lodash'
 import { Table, Container, Loader, Icon, Button } from 'semantic-ui-react'
 import moment from 'moment';
-import './TicketList.css'
 import { Link } from 'react-router-dom'
-// TODO: Pagination for tables
-// TODO: Sortable by date
-// DONE: Icons
-// DONE: Clickable row
-// TODO: Default sort by date
-// TODO: Hide solved
+import './TicketList.css'
 
 class TicketList extends Component {
   state = {
@@ -51,6 +45,7 @@ class TicketList extends Component {
   render() {
     const { column, data, direction } = this.state
 
+    // Condition: while data is undefined, a loader is displayed.
     if (data === undefined) {
       return <Loader />
     }

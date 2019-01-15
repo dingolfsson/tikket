@@ -2,9 +2,8 @@ import React from 'react'
 import { Card, Icon, Grid } from 'semantic-ui-react'
 import './AdminCards.css'
 
-// Done: Undir 1200 px X = Rusl. Laga
-
 const AdminCards = (props) => {
+  // Props: From Admin component
   const { title, info, icon, iconText, color, secondaryIcon } = props
 
   return (
@@ -22,8 +21,6 @@ const AdminCards = (props) => {
               </Card.Description>
             </Grid.Column>
           </Grid.Row>
-          {/* <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' /> */}
-
         </Grid>
       </Card.Content>
       <Card.Content extra>

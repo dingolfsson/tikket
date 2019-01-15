@@ -3,6 +3,7 @@ import moment from 'moment'
 import { Feed, Card } from 'semantic-ui-react'
 
 const Notifications = (props) => {
+  // Props: From Admin component
   const { notifications } = props
   return (
     <Card fluid>
@@ -11,7 +12,6 @@ const Notifications = (props) => {
       </Card.Content>
       <Card.Content>
         <Feed>
-
           {notifications && notifications.map(item => {
             return (
               <Feed.Event key={item.id}>

@@ -5,10 +5,6 @@ import { createTicket } from '../../store/actions/ticket';
 
 import './CreateTicket.css';
 
-// TODO: Gera frekar select í stað cards?
-// selectedOption
-// TODO: Attachment
-
 class CreateTicket extends Component {
   state = {
     title: '',
@@ -27,6 +23,7 @@ class CreateTicket extends Component {
     });
   }
 
+  // Toggle: Priority
   handleCheckClick = (e) => {
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
     this.setState({
@@ -34,6 +31,7 @@ class CreateTicket extends Component {
     })
   }
 
+  // Update: state form
   handleChange = (e) => {
     const { id, value } = e.target
     this.setState({
@@ -41,6 +39,8 @@ class CreateTicket extends Component {
     })
   }
 
+  // Submit: state is dispatched
+  // Errors: Success = False
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createTicket(this.state);
@@ -50,6 +50,7 @@ class CreateTicket extends Component {
     this.props.history.push('/');
   }
 
+  // if: Success = True
   handleSuccess = () => {
     setTimeout(() => {
       this.props.history.push('/');
@@ -58,8 +59,12 @@ class CreateTicket extends Component {
 
   render() {
 
+    // priority: boolean (default: false)
     const { priority } = this.state;
+    // success: boolean (default: false)
     const { success } = this.props;
+
+    // onSubmit: true
     if (success) {
       this.handleSuccess();
     }
@@ -76,7 +81,6 @@ class CreateTicket extends Component {
                         Ný beiðni
               </Header.Content>
                     </Header>
-                    {/* <Header as='h1' textAlign='center'>Nýskráning</Header> */}
                     <Form.Group widths='equal'>
                       <Form.Input id='title' icon='user' iconPosition='left' label='Titill' placeholder='Kemst ekki á netið / Bilaður prentari...' onChange={this.handleChange} required />
                     </Form.Group>
@@ -85,7 +89,6 @@ class CreateTicket extends Component {
                     </Form.Group>
                     <Divider />
                     <Card.Group itemsPerRow={2}>
-
                       <Card id='computer' color={this.state.selectedOption === 'computer' ? 'red' : null} onClick={() => this.handleOptionChange('computer')}>
                         <Card.Content>
                           <Grid>
@@ -175,16 +178,12 @@ class CreateTicket extends Component {
                               </Grid.Column>
                             </Grid.Row>
                           </Grid>
-                          {/* <Image floated='right' size='mini' src={faker.image.people()} /> */}
-
                         </Card.Content>
                       </Card>
                     </Card.Group>
                     <Divider />
                     <FormCheckbox label='Áríðandi' id='priority' checked={priority} onClick={this.handleCheckClick} />
-                    {/* <Header as='h5'>Viðhengi</Header> */}
                     <Button.Group widths={2}>
-
                       <Button basic onClick={this.handleCancel}>Til baka</Button>
                       <Button basic color='green' fluid size='large'
                       >
@@ -194,6 +193,7 @@ class CreateTicket extends Component {
                   </Segment>
                 </Form>
               </React.Fragment>
+              // onSumbit: Success
             ) : (
                 <Message
                   positive
@@ -210,6 +210,8 @@ class CreateTicket extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // Return: Properties for the component
+  // success: boolean (default: false)
   return {
     success: state.ticket.success
   }
@@ -221,5 +223,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CreateTicket);
 export default connect(mapStateToProps, mapDispatchToProps)(CreateTicket)

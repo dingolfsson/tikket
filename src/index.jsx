@@ -1,5 +1,4 @@
 import 'semantic-ui-css/semantic.min.css'
-import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
@@ -12,10 +11,16 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 import 'moment/locale/is'
+import './index.css'
 require('dotenv').config()
 
 const store = createReduxStore()
 
+// react redux firebase
+// 1. firebase instance
+// 1.1 configurations
+// 2. redux
+// 3. firestore instance
 const rrfProps = {
   firebase,
   config: { useFirestoreForProfile: true, userProfile: 'users', attachAuthIsReady: true },

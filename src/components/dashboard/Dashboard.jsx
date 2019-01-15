@@ -3,17 +3,20 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Container, Loader, Dimmer } from 'semantic-ui-react'
-import './Dashboard.css'
 import TicketList from '../tickets/TicketList'
+import './Dashboard.css'
 
 class Dashboard extends Component {
-  render () {
+  render() {
     const { tickets, auth, admin } = this.props
+    // Data: Users can only see their own tickets
     let tick = tickets && tickets.filter(item => item.authorId === auth.uid)
+    // Condition: Admins can see all tickets
     if (admin) {
       tick = tickets && tickets.map(item => item)
     }
 
+    // Condition:  While tickets are being fetched, a load screen is displayed
     if (!tickets) {
       return (
         <Dimmer active inverted>
@@ -34,6 +37,10 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   const admin = (state.firebase.profile.admin)
+  // Return: Properties for the component
+  // tickets: objects
+  // auth: object
+  // admin: boolean (default: false)
   return {
     tickets: state.firestore.ordered.tickets,
     auth: state.firebase.auth,

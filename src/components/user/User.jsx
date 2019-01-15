@@ -149,6 +149,10 @@ class User extends Component {
 
 const mapStateToProps = (state) => {
   const admin = (state.firebase.profile.admin)
+  // Return: Properties for the component
+  // users: object
+  // auth: object
+  // admin: boolean
   return {
     users: state.firestore.ordered.users,
     auth: state.firebase.auth,

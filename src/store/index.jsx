@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createRootReducer from './reducers/rootReducer'
 import '../config/firebase'
 import 'firebase/auth'
-import 'firebase/firestore' // <- needed if using firestore
+import 'firebase/firestore'
 
 const initialState = {}
 

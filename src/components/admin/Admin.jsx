@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Container, Grid, Loader, Dimmer } from 'semantic-ui-react';
+import { Container, Grid, Loader, Dimmer, LabelDetail } from 'semantic-ui-react';
 import AdminCards from './AdminCards'
 import AdminNotifications from './AdminNotifications'
 
@@ -19,6 +19,8 @@ class Admin extends Component {
 
   componentDidMount() {
     const { admin } = this.props;
+    // if: user isn't an admin, he'll be
+    // moved to the Dashboard
     if (!admin) {
       this.props.history.push('/');
     }
@@ -26,6 +28,8 @@ class Admin extends Component {
 
   render() {
     const { notifications, tickets, users } = this.props;
+    // Initilize: various properties are gathered that are
+    //            required to populate cards and notifications
     const tick = tickets && tickets.map(item => item)
     const priority = tick && tick.filter(item => item.priority && !item.solved)
     const solved = tick && tick.filter(item => !item.solved)
@@ -33,6 +37,7 @@ class Admin extends Component {
     const superAdmins = users && users.filter(item => item.superAdmin)
 
     if (tickets === undefined || solved === undefined || admins === undefined || superAdmins === undefined) {
+      // While any of the properties aren't ready, a load screen will appear
       return (
         <Dimmer active inverted>
           <Loader size='massive' inline='centered'>Sæki gögn</Loader>
@@ -72,6 +77,7 @@ class Admin extends Component {
 
 const mapStateToProps = (state) => {
   const admin = (state.firebase.profile.admin)
+  // Return: Properties for the component
   return {
     tickets: state.firestore.ordered.tickets,
     users: state.firestore.ordered.users,
@@ -80,7 +86,8 @@ const mapStateToProps = (state) => {
     admin: admin
   }
 }
-// export default Admin;
+
+// Gathering required values when the component is loaded.
 export default compose(
   firestoreConnect([
     { collection: 'tickets', orderBy: ['createdAt', 'desc'] },

@@ -67,8 +67,12 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // Return: Properties for the component
+  // isLoaded: bool (default: false)
+  // authError: string (default: '')
+  // auth: object
   return {
-    isLoaded: state.firebase.auth.isLoaded, // Gerir ekkert = TODO
+    isLoaded: state.firebase.auth.isLoaded,
     authError: state.auth.authError,
     auth: state.firebase.auth
   }
