@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Aux from '../Aux/Aux';
-import classes from './Layout.module.css';
 
 class Layout extends Component {
   state = {
@@ -23,9 +21,7 @@ class Layout extends Component {
     return (
       <div>
         <Aux>
-
         </Aux>
-
       </div>
     )
   }
