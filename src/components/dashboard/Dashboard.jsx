@@ -7,6 +7,8 @@ import TicketList from '../tickets/TicketList'
 import './Dashboard.css'
 
 class Dashboard extends Component {
+  // This is the landing page for authenticated users
+  // On load it also gathers tickets by users
   render() {
     const { tickets, auth, admin } = this.props
     // Data: Users can only see their own tickets

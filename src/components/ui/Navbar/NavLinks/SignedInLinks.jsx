@@ -25,7 +25,7 @@ const SignedInLinks = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signOut: () => dispatch(signOut())
+    signOut: () => dispatch(signOut()) // <-- Log out dispatch
   }
 }
 

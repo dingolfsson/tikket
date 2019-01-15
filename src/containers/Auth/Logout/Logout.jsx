@@ -16,7 +16,7 @@ class Logout extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogout: () => dispatch(actions.signOut())
+    onLogout: () => dispatch(actions.signOut()) // <-- Navbar uses this dispatch
   }
 }
 
