@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
-import { Container, Loader, Dimmer } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+import { Container, Loader, Dimmer } from 'semantic-ui-react'
 import './Dashboard.css'
-import TicketList from '../tickets/TicketList';
+import TicketList from '../tickets/TicketList'
 
 class Dashboard extends Component {
-
-  render() {
-    const { tickets, auth, admin } = this.props;
+  render () {
+    const { tickets, auth, admin } = this.props
     let tick = tickets && tickets.filter(item => item.authorId === auth.uid)
     if (admin) {
       tick = tickets && tickets.map(item => item)
@@ -44,7 +43,7 @@ const mapStateToProps = (state) => {
 
 export default compose(
   firestoreConnect([
-    { collection: 'tickets', orderBy: ['createdAt', 'desc'] },
+    { collection: 'tickets', orderBy: ['createdAt', 'desc'] }
   ]),
-  connect(mapStateToProps),
+  connect(mapStateToProps)
 )(Dashboard)

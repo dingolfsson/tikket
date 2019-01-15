@@ -1,8 +1,8 @@
-import authReducer from './auth';
-import ticketReducer from './ticket';
-import { combineReducers } from 'redux';
-import { firestoreReducer } from 'redux-firestore';
-import { firebaseReducer } from 'react-redux-firebase';
+import authReducer from './auth'
+import ticketReducer from './ticket'
+import { combineReducers } from 'redux'
+import { firestoreReducer } from 'redux-firestore'
+import { firebaseReducer } from 'react-redux-firebase'
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -11,4 +11,4 @@ const rootReducer = combineReducers({
   firestore: firestoreReducer
 })
 
-export default rootReducer;
+export default rootReducer

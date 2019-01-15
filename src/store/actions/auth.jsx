@@ -10,16 +10,15 @@ export const signIn = (credentials) => {
       dispatch({ type: actionTypes.LOGIN_SUCCESS })
     }).catch((err) => {
       dispatch({ type: actionTypes.LOGIN_ERROR, err })
-    });
+    })
   }
 }
 
 export const signOut = () => {
   return (dispatch, getState, { getFirebase }) => {
-
     auth.signOut().then(() => {
-      dispatch({ type: actionTypes.SIGNOUT_SUCCESS });
-    });
+      dispatch({ type: actionTypes.SIGNOUT_SUCCESS })
+    })
   }
 }
 
@@ -27,7 +26,7 @@ export const signOut = () => {
 // Firestore = communicate with firestore db
 export const signUp = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    const database = db;
+    const database = db
     auth.createUserWithEmailAndPassword(
       newUser.email,
       newUser.password

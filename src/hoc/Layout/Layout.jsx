@@ -21,15 +21,17 @@ class Layout extends Component {
 
   render() {
     return (
-      <Aux>
+      <div>
+        <Aux>
 
-      </Aux>
+        </Aux>
+
+      </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     isAuthenticated: state.firebase.auth.uid !== null
   };

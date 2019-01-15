@@ -1,21 +1,21 @@
-import './App.css';
-import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { Loader } from 'semantic-ui-react';
+import './App.css'
+import React, { Component } from 'react'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { Loader } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-import Navbar from './components/ui/Navbar/Navbar';
+import Navbar from './components/ui/Navbar/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import TicketDetails from './components/tickets/TicketDetails'
-import Admin from './components/admin/Admin';
-import CreateTicket from './components/tickets/CreateTicket';
-import User from './components/user/User';
+import Admin from './components/admin/Admin'
+import CreateTicket from './components/tickets/CreateTicket'
+import User from './components/user/User'
 
 class App extends Component {
-  render() {
-    const { isAuthenticated, isAdmin, isLoaded } = this.props;
+  render () {
+    const { isAuthenticated, isAdmin, isLoaded } = this.props
     if (!isLoaded) {
       return <Loader />
     }
@@ -38,22 +38,22 @@ class App extends Component {
         <Redirect to='/' />
       </Switch>
     </div>
-      );
+    )
     return (
       <BrowserRouter>
         {switches}
       </BrowserRouter>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
-  const admin = state.firebase.profile.admin;
+  const admin = state.firebase.profile.admin
   return {
     isAuthenticated: state.firebase.auth.uid !== undefined,
     isAdmin: admin,
     isLoaded: state.firebase.profile.isLoaded
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

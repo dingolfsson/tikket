@@ -2,7 +2,7 @@ export {
   signIn,
   signOut,
   signUp
-} from './auth';
+} from './auth'
 
 export {
   createTicket

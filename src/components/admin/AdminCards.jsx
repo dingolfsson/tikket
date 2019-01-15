@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Card, Icon, Grid } from 'semantic-ui-react'
 import './AdminCards.css'
 
@@ -34,5 +34,4 @@ const AdminCards = (props) => {
   )
 }
 
-
-export default (AdminCards);;
+export default (AdminCards)

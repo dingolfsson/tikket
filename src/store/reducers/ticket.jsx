@@ -1,6 +1,6 @@
 const initState = {
   tickets: [{ title: '' }],
-  success: false,
+  success: false
 }
 
 const ticketReducer = (state = initState, action) => {
@@ -11,7 +11,7 @@ const ticketReducer = (state = initState, action) => {
         success: true
       }
     case 'CREATE_TICKET_ERROR':
-      return state;
+      return state
     case 'SOLVE_TICKET':
       return {
         ...state,
@@ -22,9 +22,9 @@ const ticketReducer = (state = initState, action) => {
     default:
       return {
         ...state,
-        success: false,
+        success: false
       }
   }
 }
 
-export default ticketReducer;
+export default ticketReducer

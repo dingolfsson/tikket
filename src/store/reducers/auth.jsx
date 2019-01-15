@@ -16,11 +16,11 @@ const authReducer = (state = initState, action) => {
         authError: null
       }
     case 'SIGNOUT_SUCCESS':
-      return state;
+      return state
     case 'SIGNUP_SUCCESS':
       return {
         ...state,
-        authError: null,
+        authError: null
       }
     case 'SIGNUP_ERROR':
       return {
@@ -32,4 +32,4 @@ const authReducer = (state = initState, action) => {
   }
 }
 
-export default authReducer;
+export default authReducer
