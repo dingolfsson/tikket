@@ -71,7 +71,7 @@ class SignUp extends Component {
       }
       if (isPassword) {
         validity[name] = value.length >= 8;
-        fieldValidationErrors[name] = validity[name] ? '' : 'Lykilorð verður að vera amk. 12 stafir';
+        fieldValidationErrors[name] = validity[name] ? '' : 'Lykilorð verður að vera amk. 8 stafir';
       }
       if (isConfirmPassword) {
         validity[name] = value === this.state.form.password;
@@ -93,7 +93,6 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.signUp(this.state.form);
-    // console.log(this.state.form)
   }
 
   render() {
@@ -143,15 +142,8 @@ class SignUp extends Component {
                 <Message className="message-box">
                   Með aðgang? <Link to='/'><span className='second-info'>Innskrá</span></Link>
                 </Message>
-                {/* <Grid.Row textAlign='center' className='grid-column'>
-                  Með aðgang? <Link to='/'>Innskrá</Link>
-                </Grid.Row> */}
               </Segment>
             </Form>
-            {/* <Message className="message-box">
-              Með aðgang? <Link to='/'>Innskrá</Link>
-            </Message> */}
-
           </Grid.Column>
         </Grid>
       </div>
