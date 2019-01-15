@@ -1,14 +1,17 @@
-<p align="center"><img src="./public/logo4.png"  width="50" /></p>
+<div align="center"><img src="./public/logo4.png"  width="50" />
 
 # [Tikket](https://tikkety.herokuapp.com) 
-Beiðnakerfi skrifað í [React](https://reactjs.org/) og [Semanti UI](https://react.semantic-ui.com).
-
-## Staða
 [![](https://david-dm.org/dingolfsson/tikket.svg)]() [![](https://img.shields.io/badge/npm-v6.5.0-brightgreen.svg)]() [![Build Status](https://travis-ci.org/dingolfsson/tikket.png?branch=master)](https://travis-ci.org/dingolfsson/tikket) 
-[![Maintainability](https://api.codeclimate.com/v1/badges/e8edec70bd351e38c59e/maintainability)](https://codeclimate.com/github/dingolfsson/tikket/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e8edec70bd351e38c59e/test_coverage)](https://codeclimate.com/github/dingolfsson/tikket/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e8edec70bd351e38c59e/maintainability)](https://codeclimate.com/github/dingolfsson/tikket/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e8edec70bd351e38c59e/test_coverage)](https://codeclimate.com/github/dingolfsson/tikket/test_coverage)  [![Known Vulnerabilities](https://snyk.io/test/github/dingolfsson/tikket/badge.svg)](https://snyk.io/test/github/dingolfsson/tikket) [![Inline docs](http://inch-ci.org/github/dingolfsson/tikket.svg?branch=master)](http://inch-ci.org/github/dingolfsson/tikket) 
+
+ 
+ [React](https://reactjs.org/) / [Semanti UI](https://react.semantic-ui.com)
+</div>
+
+
 
 ## Sýnishorn
-![](./public/Screenshots/tickets.png)
+![](./public/Screenshots/tickets_2.png)
 ![](./public/Screenshots/admin.png)
 
 
