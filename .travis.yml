@@ -9,6 +9,8 @@ script:
   - npm run build
 deploy:
   provider: heroku
+  api_key:
+    secure: "ajTzOzELWs13IWhsc/N0aqR2tgzE38UA80m8FO/XpwtWZ3XEWcHfUWug+N4nX3xQUkonrbIWP/bH3q7jRoNupYvi5sdFP+sSRexEpmPpkV0vkMwUvX3IWVH6qJlQaslJ92mY6XZWMniTe/fJ2m5L/X7fJpENXLpwW8JrRhPcpEHczb7O5xY3T0E9t8S9Ys+GHgKOZ2uKQQT+zhEjPtt5CMiKVhJ6qvG8+jzxEySrxi8DHRoEuZUOMyr0JY8vv6W9cRVjr7a89noSdAFJGYLoKeiGnxNLRu2OmdDOP3Guf58hBbrVUlP27uFgqATFla9esOiaAyI+omlOPBeQgrNp0Rluzv/MuwN2T5shxHYBkPEaXi2K+p241HHF1UxG4vjGtyy7l40hreVPeIh0GNqY7+S7/gvzKSS1XjQCcHIA+WHLKKispLaNGlM5W+sAmsUmnJRT15icwXNcgHVWb0h+XpPxfeb2N0G45JZBHHGBtdobyL3jFiYldYtn5hdb7OG52REU96dAQRKowaGsgxt6y9AywTusrdQRE6DfNwIOADa0iODIBkrE8QsH6Mi6QC8y0fU4CK+G5ZLewxrnd8Y8q90ZE2pinyfHaWVyX4Q3WDxOOy19Q+XhFfZHH3YCjDAvqalvXklH6uNxfOxreL4SYQmurnZGy25/Ta3E1WVa7mc="
   skip_cleanup: true
   github_token: $github_token
   local_dir: build
