@@ -37,12 +37,13 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+// mapStateToProps: Properties for the component
+// tickets: objects
+// auth: object
+// admin: boolean (default: false)
+// @return [tickets, auth, admin]
+const mapStateToProps = state => {
   const admin = (state.firebase.profile.admin)
-  // Return: Properties for the component
-  // tickets: objects
-  // auth: object
-  // admin: boolean (default: false)
   return {
     tickets: state.firestore.ordered.tickets,
     auth: state.firebase.auth,

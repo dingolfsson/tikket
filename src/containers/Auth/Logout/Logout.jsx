@@ -8,15 +8,16 @@ class Logout extends Component {
   componentDidMount() {
     this.props.onLogout()
   }
-
+  // render: redirects logged out user
   render() {
     return <Redirect to='/' />
   }
 }
 
 const mapDispatchToProps = dispatch => {
+  // Dispatch: inLogout is a dispatch to log out the signed in user
   return {
-    onLogout: () => dispatch(actions.signOut()) // <-- Navbar uses this dispatch
+    onLogout: () => dispatch(actions.signOut())
   }
 }
 

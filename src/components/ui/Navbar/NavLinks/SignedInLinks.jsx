@@ -23,9 +23,11 @@ const SignedInLinks = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
+// Only signed in users can see the logout button
+// onClick a dispatch is made to log out the signed in user
+const mapDispatchToProps = dispatch => {
   return {
-    signOut: () => dispatch(signOut()) // <-- Log out dispatch
+    signOut: () => dispatch(signOut())
   }
 }
 
