@@ -5,10 +5,16 @@ import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/auth';
 import './Navbar.css'
 
-// NavBar.jsx
+// Navbar.jsx
+// Navbar: Component
+// @return jsx 
 class Navbar extends Component {
-
   state = { activeItem: '' }
+
+  // handleItemClick: function
+  // @params1 e: event
+  // @params2 name: string
+  // @setState activeItem
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name })
   }
@@ -21,6 +27,7 @@ class Navbar extends Component {
     // admin: boolean (default: false)
     const { admin } = this.props;
 
+    // return jsx
     return (
       <React.Fragment>
         <Menu size='large' fixed='top' secondary>

@@ -22,8 +22,8 @@ const isLocalhost = Boolean(
 )
 
 // register: function
-// params config
-// return void
+// @params config
+// @return void
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -59,12 +59,14 @@ export function register(config) {
 }
 
 // registerValidSW: function
-// params1 swUrl
-// params2 config
+// @params1 swUrl
+// @params2 config
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
+      // registration.onupdatefound: function
+      // return void
       registration.onupdatefound = () => {
         const installingWorker = registration.installing
         if (installingWorker == null) {
@@ -106,8 +108,8 @@ function registerValidSW(swUrl, config) {
 }
 
 // checkValidServiceWorker: function
-// params1 swUrl
-// params2 config
+// @params1 swUrl
+// @params2 config
 function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
