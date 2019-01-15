@@ -3,13 +3,14 @@
 # [Tikket](https://tikkety.herokuapp.com) 
 Beiðnakerfi skrifað í [React](https://reactjs.org/) og [Semanti UI](https://react.semantic-ui.com).
 
+## Staða
+[![](https://david-dm.org/dingolfsson/tikket.svg)]() [![](https://img.shields.io/badge/npm-v6.5.0-brightgreen.svg)]() [![Build Status](https://travis-ci.org/dingolfsson/tikket.png?branch=master)](https://travis-ci.org/dingolfsson/tikket) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/e8edec70bd351e38c59e/maintainability)](https://codeclimate.com/github/dingolfsson/tikket/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e8edec70bd351e38c59e/test_coverage)](https://codeclimate.com/github/dingolfsson/tikket/test_coverage)
 
 ## Sýnishorn
 ![](./public/Screenshots/tickets.png)
 ![](./public/Screenshots/admin.png)
 
-## Staða
-[![](https://david-dm.org/dingolfsson/tikket.svg)]() [![](https://img.shields.io/badge/npm-v6.5.0-brightgreen.svg)]()
 
 ## Niðurhal og Uppsetning
 * Sækja repo: `git clone https://github.com/dingolfsson/tikket.git`

@@ -2,6 +2,7 @@
   "name": "firetwo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tikkety.herokuapp.com",
   "dependencies": {
     "@types/jest": "^23.3.11",
     "connected-react-router": "^6.1.0",
