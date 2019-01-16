@@ -108,7 +108,6 @@ class SignUp extends Component {
                     Stofna Aðgang
               </Header.Content>
                 </Header>
-                {/* <Header as='h1' textAlign='center'>Nýskráning</Header> */}
                 <Form.Group widths='equal'>
                   <Form.Input id='name' icon='user' iconPosition='left' label='Nafn' placeholder='Jón Jónsson' onChange={this.handleChange} required />
                 </Form.Group>
