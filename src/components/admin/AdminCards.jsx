@@ -1,14 +1,16 @@
 import React from 'react';
-import { Card, Icon, Grid } from 'semantic-ui-react'
-import './AdminCards.css'
+import { Container, Card, Icon, Grid } from 'semantic-ui-react';
+import './AdminCards.css';
 
 // TODO: Undir 1200 px X = Rusl. Laga
 
 const AdminCards = (props) => {
-  const { title, info, icon, iconText, color, secondaryIcon } = props
-
+  const { title, icon, iconText, color, secondaryIcon, info = [], handleClickOnCard } = props;
+  const handleClick = () => {
+    handleClickOnCard(info);
+  }
   return (
-    <Card className='admin-cards'>
+    <Card className='admin-cards' onClick={handleClick}>
       <Card.Content>
         <Grid>
           <Grid.Row>
@@ -35,4 +37,4 @@ const AdminCards = (props) => {
 }
 
 
-export default (AdminCards);;
+export default AdminCards;

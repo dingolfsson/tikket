@@ -12,7 +12,7 @@ class Dashboard extends Component {
     const { tickets, auth, admin } = this.props;
     let tick = tickets && tickets.filter(item => item.authorId === auth.uid)
     if (admin) {
-      tick = tickets && tickets.map(item => item)
+      tick = tickets
     }
     console.log(process.env.REACT_APP_API_KEY)
 

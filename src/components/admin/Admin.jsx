@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Container, Grid, Loader, Dimmer } from 'semantic-ui-react';
-import AdminCards from './AdminCards'
-import AdminNotifications from './AdminNotifications'
+import { Container, Loader, Dimmer } from 'semantic-ui-react';
+import AdminCardSeq from './AdminCardSeq';
+import TicketList from '../tickets/TicketList';
+import UserList from '../user/UserList';
 
 // TODO: Sækja daga á beiðnum. X beiðnir síðustu Y daga.
 // TODO. Superadmins
@@ -15,6 +16,8 @@ class Admin extends Component {
     solveds: [],
     adminss: [],
     loaded: false,
+    checkoutTickets: false,
+    checkoutUsers: false
   }
 
   componentDidMount() {
@@ -24,47 +27,59 @@ class Admin extends Component {
     }
   }
 
+  clickOnTickets(tickets) {
+    this.setState({ checkoutTickets : true, coTicks : tickets })
+  }
+  
+  clickOnUsers(users) {
+    this.setState({ checkoutUsers : true, coUsers : users })
+  }
+
   render() {
     const { notifications, tickets, users } = this.props;
+    const { checkoutTickets, coTicks, checkoutUsers, coUsers } = this.state;
     const tick = tickets && tickets.map(item => item)
     const priority = tick && tick.filter(item => item.priority && !item.solved)
-    const solved = tick && tick.filter(item => !item.solved)
+    const unsolved = tick && tick.filter(item => !item.solved)
     const admins = users && users.filter(item => item.admin)
     const superAdmins = users && users.filter(item => item.superAdmin)
-
-    if (tickets === undefined || solved === undefined || admins === undefined || superAdmins === undefined) {
+    if (tickets === undefined || unsolved === undefined || admins === undefined || superAdmins === undefined) {
       return (
         <Dimmer active inverted>
           <Loader size='massive' inline='centered'>Sæki gögn</Loader>
         </Dimmer>
       )
     }
+    if (!checkoutTickets && !checkoutUsers) {
+      return (
+        <Container style={{ marginTop: '8em' }}>
+          <AdminCardSeq 
+          {...this.props}
+          clickOnTickets={this.clickOnTickets.bind(this)}
+          clickOnUsers={this.clickOnUsers.bind(this)}
+          priority={priority} notifications={notifications}
+          unsolved={unsolved} admins={admins}
+          superAdmins={superAdmins}/>
+        </Container >
+      ) 
+    }
 
-    return (
-      <Container style={{ marginTop: '8em' }}>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Beiðnir'} info={tickets} icon={'check circle'} iconText={'Síðustu 7 daga'} color={'green'} secondaryIcon={'clock'} />
-            </Grid.Column >
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Óleystar'} info={solved} icon={'question circle'} iconText={priority.length + ' áríðandi'} color={'teal'} secondaryIcon={'exclamation circle'} />
-            </Grid.Column>
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Notendur'} info={users} icon={'user'} iconText={'Síðustu 30 daga'} color={'orange'} secondaryIcon={'clock'} />
-            </Grid.Column>
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Stjórnendur'} info={admins} icon={'key'} iconText={superAdmins.length + ' ofur'} color={'yellow'} secondaryIcon={'chess queen'} />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column computer={6} tablet={8} mobile={16}>
-              <AdminNotifications notifications={notifications} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    )
+    if (checkoutTickets) {
+      return (
+        <Container>
+          <TicketList tickets={coTicks}/>
+          <button onClick={() => this.setState({checkoutTickets : false})}>Til baka</button>
+        </Container>
+      )
+    }
+    else if (checkoutUsers) {
+      return (
+        <Container>
+          <UserList users={coUsers}/>
+          <button onClick={() => this.setState({checkoutUsers : false})}>Til baka</button>
+        </Container>
+      )
+    }
   }
 }
 
@@ -75,7 +90,7 @@ const mapStateToProps = (state) => {
     users: state.firestore.ordered.users,
     auth: state.firebase.auth,
     notifications: state.firestore.ordered.notifications,
-    admin: admin
+    admin: admin,
   }
 }
 // export default Admin;
