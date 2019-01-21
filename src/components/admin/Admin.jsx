@@ -36,7 +36,7 @@ class Admin extends Component {
     const admins = users && users.filter(item => item.admin)
     const superAdmins = users && users.filter(item => item.superAdmin)
 
-    if (tickets === undefined || solved === undefined || admins === undefined || superAdmins === undefined) {
+    if (!tickets || !solved || !admins || !superAdmins) {
       // While any of the properties aren't ready, a load screen will appear
       return (
         <Dimmer active inverted>
@@ -49,25 +49,15 @@ class Admin extends Component {
       <Container style={{ marginTop: '8em' }}>
         <Grid>
           <Grid.Row>
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Beiðnir'} info={tickets} icon={'check circle'} iconText={'Síðustu 7 daga'} color={'green'} secondaryIcon={'clock'} />
-            </Grid.Column >
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Óleystar'} info={solved} icon={'question circle'} iconText={priority.length + ' áríðandi'} color={'teal'} secondaryIcon={'exclamation circle'} />
-            </Grid.Column>
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Notendur'} info={users} icon={'user'} iconText={'Síðustu 30 daga'} color={'orange'} secondaryIcon={'clock'} />
-            </Grid.Column>
-            <Grid.Column computer={4} mobile={8}>
-              <AdminCards title={'Stjórnendur'} info={admins} icon={'key'} iconText={superAdmins.length + ' ofur'} color={'yellow'} secondaryIcon={'chess queen'} />
-            </Grid.Column>
+            <AdminCards title={'Beiðnir'} info={tickets} icon={'check circle'} iconText={'Síðustu 7 daga'} color={'green'} secondaryIcon={'clock'} />
+            <AdminCards title={'Óleystar'} info={solved} icon={'question circle'} iconText={priority.length + ' áríðandi'} color={'teal'} secondaryIcon={'exclamation circle'} />
+            <AdminCards title={'Notendur'} info={users} icon={'user'} iconText={'Síðustu 30 daga'} color={'orange'} secondaryIcon={'clock'} />
+            <AdminCards title={'Stjórnendur'} info={admins} icon={'key'} iconText={superAdmins.length + ' ofur'} color={'yellow'} secondaryIcon={'chess queen'} />
           </Grid.Row>
         </Grid>
         <Grid>
           <Grid.Row columns={16}>
-            <Grid.Column computer={8} tablet={8} mobil={16}>
-              <AdminNotifications notifications={notifications} />
-            </Grid.Column>
+            <AdminNotifications notifications={notifications} />
           </Grid.Row>
         </Grid>
       </Container>
