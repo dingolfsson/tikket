@@ -10,13 +10,15 @@ import 'firebase/firestore'
 // Initilised State
 const initialState = {}
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 // : function
 // return: store
 export default () => {
   return createStore(
     createRootReducer,
     initialState,
-    compose(
+    composeEnhancers(
       applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })))
   )
 }
