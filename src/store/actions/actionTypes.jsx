@@ -10,3 +10,7 @@ export const CREATE_TICKET = 'CREATE_TICKET'
 export const SOLVE_TICKET = 'SOLVE_TICKET'
 export const CREATE_TICKET_ERROR = 'CREATE_TICKET_ERROR'
 export const SOLVE_TICKET_ERROR = 'SOLVE_TICKET_ERROR'
+
+export const GET_USERS = 'GET_USERS'
+export const GET_USER = 'GET_USER'
+

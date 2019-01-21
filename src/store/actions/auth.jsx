@@ -46,7 +46,8 @@ export const signUp = (newUser) => {
         room: newUser.room,
         email: newUser.email,
         admin: newUser.admin,
-        superAdmin: newUser.superAdmin
+        superAdmin: newUser.superAdmin,
+        createdAt: new Date()
       })
     }).then(() => {
       dispatch({ type: actionTypes.SIGNUP_SUCCESS })
