@@ -1,28 +1,15 @@
 import { Menu, Container, Icon } from 'semantic-ui-react'
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { signOut } from '../../../store/actions'
-import AdminNav from './AdminNav'
-import './Navbar.css'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class Navbar extends Component {
-  state = { activeItem: '' }
-
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name })
-  }
+class AdminNav extends Component {
 
   render() {
-    const { activeItem } = this.state
-    const { admin, signOut } = this.props;
+    const { activeItem, signOut } = this.props;
 
-    if (admin) {
-      return (<AdminNav {...this.props} activeItem={activeItem} />)
-    }
     return (
       <React.Fragment>
-        <Menu size='large' secondary>
+        <Menu size='large' fixed='top' secondary>
           <Container>
             <Menu.Item as={Link} to={'/'}>
               <img alt='logo' src='/logo5.png' />
@@ -43,15 +30,9 @@ class Navbar extends Component {
             </Menu.Menu>
           </Container>
         </Menu>
-      </React.Fragment >
+      </React.Fragment>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signOut: () => dispatch(signOut())
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Navbar);
+export default AdminNav;
