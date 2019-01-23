@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Checkbox, Grid, Header, Segment, Button, Message } from 'semantic-ui-react';
+import { Form, Checkbox, Grid, Header, Segment, Button, Message } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import * as actions from '../../store/actions';
-import { Link } from 'react-router-dom';
+import * as actions from '../../store/actions'
+import { Link } from 'react-router-dom'
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -19,7 +19,7 @@ class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signIn(this.state);
+        this.props.signIn(this.state)
     }
 
     // render: function

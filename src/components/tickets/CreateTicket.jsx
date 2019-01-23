@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Card, Icon, Grid, Header, Segment, Button, Message, Divider, FormCheckbox } from 'semantic-ui-react';
-import { createTicket } from '../../store/actions/ticket';
+import { Form, Card, Icon, Grid, Header, Segment, Button, Message, Divider, FormCheckbox } from 'semantic-ui-react'
+import { createTicket } from '../../store/actions/ticket'
 
 import './CreateTicket.css';
 

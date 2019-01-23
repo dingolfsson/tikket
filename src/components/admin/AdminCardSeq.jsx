@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import AdminCard from './AdminCard';
-import AdminNotifications from './AdminNotifications';
-import { Grid } from 'semantic-ui-react';
-import { displayTicketList, displayUserList } from '../../store/actions/admin';
+import React, { Component } from 'react'
+import AdminCard from './AdminCard'
+import AdminNotifications from './AdminNotifications'
+import { Grid } from 'semantic-ui-react'
+import { displayTicketList, displayUserList } from '../../store/actions/admin'
 
 class AdminCardSeq extends Component {
 
@@ -60,4 +60,4 @@ class AdminCardSeq extends Component {
     }
 }
 
-export default AdminCardSeq;
+export default AdminCardSeq

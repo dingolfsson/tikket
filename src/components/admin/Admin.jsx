@@ -1,21 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
-import { Container, Loader, Dimmer, Grid } from 'semantic-ui-react';
-import AdminCardSeq from './AdminCardSeq';
-import TicketList from '../tickets/TicketList';
-import UserList from '../user/UserList';
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+import { Container, Loader, Dimmer, Grid } from 'semantic-ui-react'
+import AdminCardSeq from './AdminCardSeq'
+import TicketList from '../tickets/TicketList'
+import UserList from '../user/UserList'
 
 class Admin extends Component {
 
-    componentWillReceiveProps(nextProps) {
-        const { showTicketList, list, cardClicked } = nextProps;
-        this.setState({ showTicketList, list, cardClicked })
-    }
-
     render() {
-        const { notifications, tickets, users } = this.props;
+        const { notifications, tickets, users } = this.props
 
         if (tickets === undefined || users === undefined) {
             return (
@@ -29,7 +24,7 @@ class Admin extends Component {
         const unsolved = tickets.filter(item => !item.solved)
         const admins = users.filter(item => item.admin)
         const superAdmins = users.filter(item => item.superAdmin)
-        const { cardClicked, showTicketList, list } = this.props;
+        const { cardClicked, showTicketList, list } = this.props
         // Ugly implementation using (cardClicked), because not able to put state.firestore.tickets as init value
         let displayedList;
         if (!cardClicked) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from "react-router";
+import { withRouter } from "react-router"
 import _ from 'lodash'
 import { Table, Container, Loader, Icon, Button } from 'semantic-ui-react'
 import moment from 'moment';

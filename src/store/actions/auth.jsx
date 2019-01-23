@@ -1,5 +1,5 @@
-import * as actions from './actions';
-import { auth, db } from '../../config/firebase';
+import * as actions from './actions'
+import { auth, db } from '../../config/firebase'
 
 export const signIn = (credentials) => {
     return (dispatch, getState, { getFirebase }) => {

@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { Link } from 'react-router-dom';
 import { compose } from 'redux'
 import { Container, Loader, Dimmer, Button, Grid } from 'semantic-ui-react'
-import TicketList from '../tickets/TicketList';
+import TicketList from '../tickets/TicketList'
 import './Dashboard.css'
 
 class Home extends Component {

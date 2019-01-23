@@ -15,13 +15,7 @@ import { Link } from 'react-router-dom'
 class UserList extends Component {
     state = {
         column: null,
-        users: this.props.users,
         direction: null,
-    }
-
-    componentWillReceiveProps(nextProps) {
-        const { users } = nextProps;
-        this.setState({ users });
     }
 
     handleSort = clickedColumn => () => {
@@ -48,41 +42,30 @@ class UserList extends Component {
     }
 
     render() {
-        const { column, users, direction } = this.state
+        const { column, direction } = this.state
+        const { users } = this.props;
 
         if (users === undefined) {
             return <Loader />
         }
         return (
             <React.Fragment>
-                <Button.Group labeled icon color='blue' floated='right'>
-                    <Button as={Link} to='/ticket/new' labelPosition='left' icon='plus' content='Ný beiðni' />
-                </Button.Group>
                 <Table color="orange" sortable compact fixed singleLine>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell
-                                width={3}
                                 sorted={column === 'authorFirstName' ? direction : null}
                                 onClick={this.handleSort('authorFirstName')}
                             >
                                 Nafn
             </Table.HeaderCell>
                             <Table.HeaderCell
-                                width={1}
-                                sorted={column === 'selectedOption' ? direction : null}
-                                onClick={this.handleSort('selectedOption')}
-                            >
-                            </Table.HeaderCell>
-                            <Table.HeaderCell
-                                width={3}
                                 sorted={column === 'email' ? direction : null}
                                 onClick={this.handleSort('email')}
                             >
                                 Netfang
               </Table.HeaderCell>
                             <Table.HeaderCell
-                                width={3}
                                 textAlign='right'
                                 sorted={column === 'phone' ? direction : null}
                                 onClick={this.handleSort('phone')}
@@ -96,9 +79,6 @@ class UserList extends Component {
                             return (
                                 <Table.Row key={user.id} positive={user.solved} warning={user.priority && !user.solved} onClick={() => this.handleClick(user.id)}>
                                     <Table.Cell>{user.name}</Table.Cell>
-                                    <Table.Cell>
-                                        <Icon name={user.selectedOption} />
-                                    </Table.Cell>
                                     <Table.Cell>{user.email}</Table.Cell>
                                     <Table.Cell textAlign='right'>{user.phone}</Table.Cell>
                                 </Table.Row>

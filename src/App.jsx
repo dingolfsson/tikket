@@ -1,18 +1,18 @@
 import './App.css'
 import React, { Component } from 'react'
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { Loader } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
-import Navbar from './components/ui/Navbar/Navbar';
-import UserRoute from './components/user/UserRoute';
-import User from './components/user/User';
-import Admin from './components/admin/Admin';
-import Dashboard from './components/dashboard/Dashboard';
-import SignIn from './components/auth/SignIn';
-import SignUp from './components/auth/SignUp';
-import TicketDetails from './components/tickets/TicketDetails';
-import CreateTicket from './components/tickets/CreateTicket';
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Loader } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import Helmet from 'react-helmet'
+import Navbar from './components/ui/Navbar/Navbar'
+import UserRoute from './components/user/UserRoute'
+import User from './components/user/User'
+import Admin from './components/admin/Admin'
+import Dashboard from './components/dashboard/Dashboard'
+import SignIn from './components/auth/SignIn'
+import SignUp from './components/auth/SignUp'
+import TicketDetails from './components/tickets/TicketDetails'
+import CreateTicket from './components/tickets/CreateTicket'
 
 class App extends Component {
 

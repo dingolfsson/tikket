@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import moment from 'moment'
-import { Feed, Card } from 'semantic-ui-react';
+import { Feed, Card } from 'semantic-ui-react'
 
 const Notifications = (props) => {
     const { notifications } = props;
@@ -31,4 +31,4 @@ const Notifications = (props) => {
     )
 }
 
-export default Notifications;
+export default Notifications

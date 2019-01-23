@@ -1,9 +1,9 @@
 import { Menu, Container, Icon } from 'semantic-ui-react'
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { signOut } from '../../../store/actions';
-import AdminNav from './AdminNav';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { signOut } from '../../../store/actions'
+import AdminNav from './AdminNav'
 import './Navbar.css'
 
 class Navbar extends Component {
