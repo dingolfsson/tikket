@@ -1,6 +1,6 @@
 import { Menu, Container, Icon } from 'semantic-ui-react'
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class AdminNav extends Component {
 
@@ -11,16 +11,13 @@ class AdminNav extends Component {
       <React.Fragment>
         <Menu size='large' fixed='top' secondary>
           <Container>
-            <Menu.Item header name='Tikket'>
+            <Menu.Item as={Link} to={'/'}>
               <img alt='logo' src='/logo5.png' />
+              <div style={{ 'paddingLeft': '1em' }}>Hörðuvallaskóli</div>
             </Menu.Item>
-            <Menu.Item name='School'>
-              Hörðuvallaskóli
-          </Menu.Item>
             <Menu.Menu position='right'>
               <Menu.Item
-                exact
-                as={NavLink}
+                as={Link}
                 to={'/profile'}
                 name='user'
                 active={activeItem === 'user'}

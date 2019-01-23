@@ -4,8 +4,8 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { Link } from 'react-router-dom';
 import { compose } from 'redux'
 import { Container, Loader, Dimmer, Button, Grid } from 'semantic-ui-react'
-import TicketList from '../../components/ticket-list/TicketList';
-import './Home.css'
+import TicketList from '../tickets/TicketList';
+import './Dashboard.css'
 
 class Home extends Component {
 
@@ -24,6 +24,9 @@ class Home extends Component {
                 <Grid>
                     <Grid.Row>
                         <h2>Þínar beiðnir</h2>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Button as={Link} to='/ticket/new' color='blue' icon='plus' content='Ný beiðni' />
                     </Grid.Row>
                     <Grid.Row>
                         <TicketList tickets={tickets} />

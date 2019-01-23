@@ -3,17 +3,21 @@ import React, { Component } from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import Navbar from './components/navbar/Navbar';
 import Helmet from 'react-helmet';
-import UserRoute from './components/user-route/UserRoute';
-import Admin from './routes/admin/Admin';
-import Home from './routes/home/Home';
-import SignIn from './routes/sign-in/SignIn';
+import Navbar from './components/ui/Navbar/Navbar';
+import UserRoute from './components/user/UserRoute';
+import User from './components/user/User';
+import Admin from './components/admin/Admin';
+import Dashboard from './components/dashboard/Dashboard';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import TicketDetails from './components/tickets/TicketDetails';
+import CreateTicket from './components/tickets/CreateTicket';
 
 class App extends Component {
 
   render() {
-    const { isAuthenticated, isAdmin, location, isLoaded } = this.props;
+    const { isAuthenticated, isAdmin, isLoaded } = this.props;
     if (!isLoaded) {
       return (<Loader />);
     }
@@ -22,16 +26,19 @@ class App extends Component {
         <React.Fragment>
           <Helmet defaultTitle="Tikket" />
           <Navbar admin={isAdmin} />
-          <Switch location={location}>
-            <UserRoute path="/" authenticated={isAdmin} component1={Admin} component2={Home} />
-            <Route path="/ticket/:id" component={Home} />
+          <Switch>
+            <Route path="/profile" component={User} />
+            <Route exact path='/ticket/new' component={CreateTicket} />
+            <Route path="/ticket/:id" component={TicketDetails} />
+            <UserRoute path="/" authenticated={isAdmin} component1={Admin} component2={Dashboard} />
           </Switch>
         </React.Fragment>
       )
       :
       (
-        <Switch location={location}>
-          <Route exact path="/" component={SignIn} />
+        <Switch>
+          <Route exact path="/new" component={SignUp} />
+          <Route path="/" component={SignIn} />
         </Switch>
       )
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AdminCard from '../admin-card/AdminCard';
-import AdminNotifications from '../admin-notifications/AdminNotifications';
+import AdminCard from './AdminCard';
+import AdminNotifications from './AdminNotifications';
 import { Grid } from 'semantic-ui-react';
-import { displayTicketList, displayUserList } from '../../actions/admin';
+import { displayTicketList, displayUserList } from '../../store/actions/admin';
 
 class AdminCardSeq extends Component {
 

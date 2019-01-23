@@ -2,9 +2,10 @@ import thunk from 'redux-thunk'
 import { getFirestore, firestoreReducer } from 'redux-firestore'
 import { getFirebase, firebaseReducer } from 'react-redux-firebase'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-import auth from './auth';
-import admin from './admin';
-import '../config/firebase'
+import auth from './auth'
+import admin from './admin'
+import ticket from './ticket'
+import '../../config/firebase'
 
 // Combine reducers
 const reducers = combineReducers({
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   firestore: firestoreReducer,
   auth,
   admin,
+  ticket,
 })
 
 // Initilised State

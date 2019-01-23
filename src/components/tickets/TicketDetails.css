@@ -1,0 +1,17 @@
+i.circular.icon {
+    margin-bottom: 1em;
+  }
+  
+  .ticket-header {
+    font-size: 2em;
+  }
+  
+  .ui.card>.content>.header:not(.ui),
+  .ui.cards>.card>.content>.header {
+    color: hsl(202, 57%, 15%)
+  }
+  
+  .ui.card>.content>.description,
+  .ui.cards>.card>.content>.description {
+    color: hsl(201, 23%, 32%)
+  }

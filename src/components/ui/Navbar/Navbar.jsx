@@ -1,8 +1,8 @@
 import { Menu, Container, Icon } from 'semantic-ui-react'
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signOut } from '../../actions/auth';
+import { signOut } from '../../../store/actions';
 import AdminNav from './AdminNav';
 import './Navbar.css'
 
@@ -24,16 +24,13 @@ class Navbar extends Component {
       <React.Fragment>
         <Menu size='large' secondary>
           <Container>
-            <Menu.Item header name='Tikket'>
+            <Menu.Item as={Link} to={'/'}>
               <img alt='logo' src='/logo5.png' />
+              <div style={{ 'paddingLeft': '1em' }}>Hörðuvallaskóli</div>
             </Menu.Item>
-            <Menu.Item name='School'>
-              Hörðuvallaskóli
-          </Menu.Item>
             <Menu.Menu position='right'>
               <Menu.Item
-                exact
-                as={NavLink}
+                as={Link}
                 to={'/profile'}
                 name='user'
                 active={activeItem === 'user'}
@@ -46,7 +43,7 @@ class Navbar extends Component {
             </Menu.Menu>
           </Container>
         </Menu>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
